@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { HiMenu, HiX } from "react-icons/hi";
 import { GiCook } from "react-icons/gi";
+import { Tooltip } from 'react-tooltip';
+import 'react-tooltip/dist/react-tooltip.css';
+
+
 
 
 
@@ -43,23 +47,20 @@ const Header = () => {
 
                     {
                         user ?
-                            <div className='overflow-hidden relative transition duration-200 transform ml-12'>
-                                <img
-                                    src='https://i.ibb.co/dbb1Vkh/f48e2701-903c-42b2-a70d-443cdea9f4d3-removebg-preview.png'
-                                    alt='profile'
-                                    className='object-cover w-20'
-                                />
 
-                                {
-                                    name &&
-                                    <div className='bg-white opacity-0 hover:opacity-100 text-gray-900 absolute inset-0 transition-opacity duration-200 flex flex-col rounded-xl'>
-                                        <p className='text-xl font-extrabold text-center m-auto'>yasin</p>
-                                    </div>
-                                }
-                            </div>
+                            <img
+                                id='name-show'
+
+                                src='https://i.ibb.co/dbb1Vkh/f48e2701-903c-42b2-a70d-443cdea9f4d3-removebg-preview.png'
+                                alt='profile'
+                                className='object-cover w-20'
+                            />
+
                             :
                             <button className='ml-12 py-3 px-7 bg-[#F9A51A] rounded-lg shadow-md'>Login</button>
                     }
+                    <Tooltip anchorSelect="#name-show"
+                        content="Hello world!" />
                 </nav>
                 {/* Mobile Navbar Section */}
                 <div className='lg:hidden'>
@@ -69,7 +70,7 @@ const Header = () => {
                         title='Open Menu'
                         onClick={() => setIsMenuOpen(true)}
                     >
-                        <HiMenu className='w-6 h-6 text-gray-600'/>
+                        <HiMenu className='w-6 h-6 text-gray-600' />
                     </button>
                     {isMenuOpen && (
                         <div className='absolute top-0 left-0 w-full z-10'>
@@ -78,7 +79,7 @@ const Header = () => {
                                 <div className='flex items-center justify-between mb-4'>
                                     <div>
                                         <Link to='/' className='inline-flex items-center'>
-                                        <GiCook className='h-10 w-10 text-gray-600' />
+                                            <GiCook className='h-10 w-10 text-gray-600' />
                                             <span className='ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase'>
                                                 Chef's Plate
                                             </span>
@@ -115,20 +116,15 @@ const Header = () => {
 
                                     {
                                         user ?
-                                            <div className='overflow-hidden relative transition duration-200 transform ml-12'>
-                                                <img
-                                                    src='https://i.ibb.co/dbb1Vkh/f48e2701-903c-42b2-a70d-443cdea9f4d3-removebg-preview.png'
-                                                    alt='profile'
-                                                    className='object-cover w-20'
-                                                />
 
-                                                {
-                                                    name &&
-                                                    <div className='bg-white opacity-0 hover:opacity-100 text-gray-900 absolute inset-0 transition-opacity duration-200 flex flex-col rounded-xl'>
-                                                        <p className='text-xl font-extrabold text-center m-auto'>yasin</p>
-                                                    </div>
-                                                }
-                                            </div>
+                                            <img
+                                                data-tooltip-id="my-tooltip" data-tooltip-content="Hello world xdfsgadsgas dsgfdsg!"
+
+                                                src='https://i.ibb.co/dbb1Vkh/f48e2701-903c-42b2-a70d-443cdea9f4d3-removebg-preview.png'
+                                                alt='profile'
+                                                className='object-cover w-20'
+                                            />
+
                                             :
                                             <button className='ml-12 py-3 px-7 bg-[#F9A51A] rounded-lg shadow-md'>Login</button>
                                     }
