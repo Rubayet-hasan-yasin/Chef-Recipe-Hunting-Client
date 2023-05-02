@@ -69,7 +69,7 @@ const Header = () => {
                         title='Open Menu'
                         onClick={() => setIsMenuOpen(true)}
                     >
-                        <HiMenu />
+                        <HiMenu className='w-6 h-6 text-gray-600'/>
                     </button>
                     {isMenuOpen && (
                         <div className='absolute top-0 left-0 w-full z-10'>
@@ -91,7 +91,7 @@ const Header = () => {
                                             title='Close Menu'
                                             onClick={() => setIsMenuOpen(false)}
                                         >
-                                            <HiX className='w-5 text-gray-600' />
+                                            <HiX className='w-6 h-6 text-gray-600' />
                                         </button>
                                     </div>
                                 </div>
