@@ -66,6 +66,29 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
+
+
+                <div className='flex justify-around my-28'>
+                    <img
+                        className='w-2/5'
+                        src="https://i.ibb.co/026Wq5y/chef-with-thumb-up.jpg" alt="img" />
+
+                    <div className='flex flex-col'>
+                        <div className='my-auto'>
+                            <h1 className='text-red-500 text-5xl font-bold'>Food is Love</h1>
+                            <p>
+                                "Are you food lover? If your answer is yes,
+                                <br />
+                                then you need good chef for cook.
+                                <br />
+                                All chef serve foods for reasonable prices.
+                                <br />
+                                It's awesome, we know."</p>
+                        </div>
+                    </div>
+                </div>
+
+
             </section>
         </div>
     );
