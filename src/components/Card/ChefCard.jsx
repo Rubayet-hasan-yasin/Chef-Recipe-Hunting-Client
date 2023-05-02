@@ -26,7 +26,7 @@ const ChefCard = ({ chef }) => {
             </div>
 
 
-            <Link to={``}>
+            <Link to={`/chef-recipes`}>
                 <button className='text-white bg-gradient-to-r from-[#7E90FE] to-[#9873FF] hover:bg-gradient-to-br focus:ring-2 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-lg px-5 py-2.5 text-center mr-2 mb-2'>View Recipes</button>
             </Link>
 

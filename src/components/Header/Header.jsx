@@ -53,7 +53,7 @@ const Header = () => {
 
                                 src='https://i.ibb.co/dbb1Vkh/f48e2701-903c-42b2-a70d-443cdea9f4d3-removebg-preview.png'
                                 alt='profile'
-                                className='object-cover w-20'
+                                className='object-cover w-20 ml-12'
                             />
 
                             :
