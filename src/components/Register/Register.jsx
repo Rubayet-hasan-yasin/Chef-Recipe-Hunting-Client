@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import LoginButton from '../LoginButton/LoginButton';
 
 const Register = () => {
     const [error, setError] = useState('')
@@ -62,6 +63,8 @@ const Register = () => {
                 <p className='text-gray-600 my-5'>Already Have An Account ? <Link to={'/login'}><button className='text-blue-600 font-semibold underline'>Login</button></Link></p>
             </form>
 
+
+            <LoginButton></LoginButton>
         </div>
     );
 };
