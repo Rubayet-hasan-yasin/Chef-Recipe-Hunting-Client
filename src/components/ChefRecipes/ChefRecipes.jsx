@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FcLike } from 'react-icons/fc';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useParams } from 'react-router-dom';
+import ChefRecipesCard from '../Card/ChefRecipesCard';
 
 const ChefRecipes = () => {
-    const chef = useLoaderData();
-    console.log(chef);
+    const {chef, recipes} = useLoaderData();
+    const params = useParams();
+
+
+
     return (
         <>
-            <div className='grid md:grid-cols-2 gap-10 md:h-[500px]'>
+            <div className='grid md:grid-cols-2 gap-10 '>
 
                 <div>
                     <h1 className='md:text-6xl text-4xl font-bold text-gray-700 my-8 '>{chef.name}</h1>
@@ -30,11 +34,10 @@ const ChefRecipes = () => {
                     <img src={chef.picture} alt="img" className='h-3/4 rounded-xl' />
                 </div>
             </div>
-            <div>
-
-                <div>
-
-                </div>
+            <div className='grid grid-cols-2 gap-6 justify-items-center'>
+                {
+                    recipes.map((recipe, i)=> <ChefRecipesCard key={i} recipe={recipe}></ChefRecipesCard>)
+                }
             </div>
         </>
     );
