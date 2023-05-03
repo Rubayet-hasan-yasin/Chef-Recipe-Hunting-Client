@@ -5,7 +5,6 @@ import { GiCook } from "react-icons/gi";
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
 import { AuthContext } from '../AuthProvider/AuthProvider';
-import { signOut } from 'firebase/auth';
 import { toast } from 'react-hot-toast';
 
 
@@ -15,16 +14,16 @@ import { toast } from 'react-hot-toast';
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const { user, logOut } = useContext(AuthContext);
-    // console.log(user);
+    console.log(user);
 
-    const handleLogOut = ()=>{
+    const handleLogOut = () => {
         logOut()
-        .then(()=>{
-            toast.success('Successfully LogOut')
-        })
-        .catch(error=>{
-            console.log(error);
-        })
+            .then(() => {
+                toast.success('Successfully LogOut')
+            })
+            .catch(error => {
+                console.log(error);
+            })
     }
     return (
         <div className=' px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>
@@ -59,6 +58,16 @@ const Header = () => {
                     </ul>
 
                     {
+                        user &&
+                        <img
+                            id='name-show'
+                            src={user.photoURL}
+                            alt='profile'
+                            className='object-cover w-12 h-12 rounded-full ml-12'
+                        />
+                    }
+
+                    {
                         user ?
 
                             <Link to={'/'}>
@@ -70,7 +79,7 @@ const Header = () => {
                                 <button className='ml-12 py-3 px-7 bg-[#F9A51A] rounded-lg shadow-md'>Login</button>
                             </Link>
                     }
-                    <Tooltip anchorSelect="#name-show"
+                     <Tooltip anchorSelect="#name-show"
                         content={user?.displayName} />
                 </nav>
                 {/* Mobile Navbar Section */}

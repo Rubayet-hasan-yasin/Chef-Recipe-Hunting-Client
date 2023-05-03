@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import LoginButton from '../LoginButton/LoginButton';
 import { toast } from 'react-hot-toast';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const Login = () => {
-    const [error, setError] = useState('')
+    const [error, setError] = useState('');
+    const {logInWithEmail} = useContext(AuthContext);
 
     const handleLogin = event => {
         event.preventDefault()
@@ -26,6 +28,18 @@ const Login = () => {
             toast.error("The password your entered dosen't match!");
             return;
         }
+
+        logInWithEmail(email, password)
+        .then(result=>{
+            const loggedUser = result.user;
+            console.log(loggedUser);
+            toast.success('Successfully Login!')
+        })
+        .catch(error=>{
+            const message = error.message;
+            console.log(message);
+            setError(message)
+        })
 
     }
     return (
