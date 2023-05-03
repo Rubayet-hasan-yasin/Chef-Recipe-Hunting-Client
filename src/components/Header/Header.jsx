@@ -11,7 +11,7 @@ import 'react-tooltip/dist/react-tooltip.css';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
-    const user = true;
+    const user = false;
     const name = true
     return (
         <div className=' px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>
@@ -57,7 +57,9 @@ const Header = () => {
                             />
 
                             :
-                            <button className='ml-12 py-3 px-7 bg-[#F9A51A] rounded-lg shadow-md'>Login</button>
+                            <Link to={'/login'}>
+                                <button className='ml-12 py-3 px-7 bg-[#F9A51A] rounded-lg shadow-md'>Login</button>
+                            </Link>
                     }
                     <Tooltip anchorSelect="#name-show"
                         content="Hello world!" />
