@@ -1,13 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FcLike } from "react-icons/fc";
+import LazyLoad from 'react-lazy-load';
 
 const ChefCard = ({ chef }) => {
     return (
         <div className='border w-[calc(100%-20px)] rounded-lg p-10'>
             <div className='w-72 mb-8 ml-auto'>
 
-                <img src={chef.picture} alt="logo" className='object-contain rounded-2xl shadow-2xl' />
+                <LazyLoad  threshold={0.95} width={288} onContentVisible={() => {console.log('loaded!')}}>
+                    <img src={chef.picture} alt="logo" className='object-contain rounded-2xl shadow-2xl' />
+                </LazyLoad>
             </div>
 
 

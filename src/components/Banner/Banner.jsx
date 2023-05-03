@@ -81,17 +81,3 @@ const Banner = () => {
     );
 };
 export default Banner;
-
-
-
-
-{/* <SwiperSlide>
-                    <div className='grid grid-cols-2 h-[500px] gap-x-96'>
-                        <div>
-                            <h1 className='text-4xl'>It's CZNBURAK - The Smiling Man</h1>
-                        </div>
-                        <div className='h-[700px]'>
-                            <img src="https://www.cznburak.com/images/head-chef.png" alt="img" className='h-3/4' />
-                        </div>
-                    </div>
-                </SwiperSlide> */}
