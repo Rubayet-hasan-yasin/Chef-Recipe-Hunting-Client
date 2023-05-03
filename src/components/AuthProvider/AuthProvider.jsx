@@ -14,22 +14,27 @@ const AuthProvider = ({ children }) => {
 
 
     const createUer = (email, password) => {
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
     const logInWithEmail = (email, password)=>{
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password);
     }
 
     const loginWithGoogle = ()=>{
+        setLoading(true)
         return signInWithPopup(auth, googleProvider);
     }
 
     const loginWithGithub = () =>{
+        setLoading(true)
         return signInWithPopup(auth, githubProvider)
     }
 
     const logOut = ()=>{
+        setLoading(true)
         return signOut(auth);
     }
 
@@ -37,6 +42,7 @@ const AuthProvider = ({ children }) => {
         const unsubscrib = onAuthStateChanged(auth, user=>{
             // console.log('loggedin user inside auth state observer',user);
             setUser(user)
+            setLoading(false)
         })
 
         return ()=>{
@@ -46,6 +52,7 @@ const AuthProvider = ({ children }) => {
 
     const autInfo = {
         user,
+        loading,
         createUer,
         logOut,
         logInWithEmail,

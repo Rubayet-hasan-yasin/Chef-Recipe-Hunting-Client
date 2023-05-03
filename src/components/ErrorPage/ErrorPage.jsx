@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const ErrorPage = () => {
     return (
-        <div class="flex items-center justify-center h-screen flex-col">
+        <div className="flex items-center justify-center h-screen flex-col">
             <h1 className='text-9xl font-extrabold text-gray-800 my-9'>Oops!</h1>
             <p className='text-lg font-semibold mb-2'>404 - PAGE NOT FOUND</p>
             <p className='text-center'>The page you are looking for might have been removed <br /> had its name changed or is temporarily unavailable.</p>

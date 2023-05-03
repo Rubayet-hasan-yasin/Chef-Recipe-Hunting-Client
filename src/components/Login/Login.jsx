@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import LoginButton from '../LoginButton/LoginButton';
 import { toast } from 'react-hot-toast';
 import { AuthContext } from '../AuthProvider/AuthProvider';
@@ -7,6 +7,11 @@ import { AuthContext } from '../AuthProvider/AuthProvider';
 const Login = () => {
     const [error, setError] = useState('');
     const {logInWithEmail} = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
+    
 
     const handleLogin = event => {
         event.preventDefault()
@@ -34,6 +39,7 @@ const Login = () => {
             const loggedUser = result.user;
             console.log(loggedUser);
             toast.success('Successfully Login!')
+            navigate(from, {replace: true})
         })
         .catch(error=>{
             const message = error.message;

@@ -6,6 +6,7 @@ import Login from "../components/Login/Login";
 import Register from "../components/Register/Register";
 import ErrorPage from "../components/errorPage/ErrorPage";
 import ChefRecipes from "../components/ChefRecipes/ChefRecipes";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/chef-recipes/:id',
-                element: <ChefRecipes />,
+                element: <PrivateRoute><ChefRecipes /></PrivateRoute>,
                 loader: ({ params }) => fetch(`https://chef-recipe-hunting-server-rubayet-hasan-yasin.vercel.app/chef-recipes/${params.id}`)
             },
             {

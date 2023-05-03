@@ -14,7 +14,7 @@ import { toast } from 'react-hot-toast';
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const { user, logOut } = useContext(AuthContext);
-    console.log(user);
+    // console.log(user);
 
     const handleLogOut = () => {
         logOut()
@@ -70,7 +70,7 @@ const Header = () => {
                     {
                         user ?
 
-                            <Link to={'/'}>
+                            <Link >
                                 <button onClick={handleLogOut} className='ml-12 py-3 px-7 bg-[#F9A51A] rounded-lg shadow-md'>Log out</button>
                             </Link>
 
