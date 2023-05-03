@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import LoginButton from '../LoginButton/LoginButton';
+import { toast } from 'react-hot-toast';
 
 const Login = () => {
     const [error, setError] = useState('')
@@ -15,11 +17,13 @@ const Login = () => {
         const confirmPassword = form.confirm_password.value;
 
         if (password.length < 6) {
-            setError('Password at last 6 characters long.')
+            setError('Password at last 6 characters long!');
+            toast.error("Password at last 6 characters long!");
             return;
         }
         if (password !== confirmPassword) {
-            setError("The password your entered dosen't match ")
+            setError("The password your entered dosen't match!");
+            toast.error("The password your entered dosen't match!");
             return;
         }
 
@@ -48,6 +52,8 @@ const Login = () => {
 
                 <p className='text-gray-600 my-5'>Dont't Have An Account ? <Link to={'/register'}><button className='text-blue-600 font-semibold underline'>Register</button></Link></p>
             </form>
+
+            <LoginButton></LoginButton>
         </div>
     );
 };

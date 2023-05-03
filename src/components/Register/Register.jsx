@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import LoginButton from '../LoginButton/LoginButton';
+import { toast } from 'react-hot-toast';
 
 const Register = () => {
     const [error, setError] = useState('')
@@ -19,10 +20,12 @@ const Register = () => {
 
         if (password.length < 6) {
             setError('Password at last 6 characters long.')
+            toast.error("Password at last 6 characters long!")
             return;
         }
         if (password !== confirmPassword) {
             setError("The password your entered dosen't match ")
+            toast.error("The password your entered dosen't match!")
             return;
         }
 

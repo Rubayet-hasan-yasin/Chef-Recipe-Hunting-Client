@@ -26,7 +26,7 @@ const Home = () => {
                     <h1 className='text-6xl text-gray-800 font-bold text-center'>Similar Recipes</h1>
                     <p className='text-gray-500 text-base text-center my-2'>They all are provide some similar recipes</p>
 
-                    <div className='grid grid-cols-3 justify-items-center'>
+                    <div className='grid md:grid-cols-3 justify-items-center'>
                         <div className='text-center w-72 h-52 p-7'>
                             <img
                                 className='h-16 mx-auto '
@@ -49,7 +49,7 @@ const Home = () => {
                             <p className='text-base'>Desserts that will take you to other lands...</p>
                         </div>
                     </div>
-                    <div className='flex justify-center'>
+                    <div className='grid md:grid-cols-2 justify-items-center'>
                         <div className='text-center w-72 h-52 p-7'>
                             <img
                                 className='h-16 mx-auto '
@@ -68,9 +68,9 @@ const Home = () => {
                 </div>
 
 
-                <div className='flex justify-around my-28'>
+                <div className='grid md:grid-cols-2 justify-items-center my-28'>
                     <img
-                        className='w-2/5'
+                        className='md:w-3/5 mb-10 md:mb-0'
                         src="https://i.ibb.co/026Wq5y/chef-with-thumb-up.jpg" alt="img" />
 
                     <div className='flex flex-col'>
