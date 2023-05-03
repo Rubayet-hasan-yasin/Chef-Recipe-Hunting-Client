@@ -9,31 +9,31 @@ import ChefRecipes from "../components/ChefRecipes/ChefRecipes";
 
 const router = createBrowserRouter([
     {
-        path:'/',
-        element: <Main/>,
-        errorElement: <ErrorPage/>,
-        children:[
+        path: '/',
+        element: <Main />,
+        errorElement: <ErrorPage />,
+        children: [
             {
                 path: '/',
-                element: <Home/>,
-                loader: ()=> fetch('http://localhost:5000/chefs')
+                element: <Home />,
+                loader: () => fetch('https://chef-recipe-hunting-server-rubayet-hasan-yasin.vercel.app/chefs')
             },
             {
                 path: '/blog',
-                element: <Blogs/>
+                element: <Blogs />
             },
             {
                 path: '/chef-recipes/:id',
-                element: <ChefRecipes/>,
-                loader: ({params})=> fetch(`http://localhost:5000/chef-recipes/${params.id}`)
+                element: <ChefRecipes />,
+                loader: ({ params }) => fetch(`https://chef-recipe-hunting-server-rubayet-hasan-yasin.vercel.app/chef-recipes/${params.id}`)
             },
             {
                 path: '/login',
-                element: <Login/>
+                element: <Login />
             },
             {
                 path: '/register',
-                element: <Register/>
+                element: <Register />
             }
         ]
     }

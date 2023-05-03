@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import LoginButton from '../LoginButton/LoginButton';
 import { toast } from 'react-hot-toast';
+import { AuthContext } from '../AuthProvider/AuthProvider';
+import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
-    const [error, setError] = useState('')
+    const [error, setError] = useState('');
+    const {createUer} = useContext(AuthContext)
 
     const handleRegister = event => {
         event.preventDefault()
@@ -28,6 +31,25 @@ const Register = () => {
             toast.error("The password your entered dosen't match!")
             return;
         }
+
+        createUer(email, password)
+        .then(result=>{
+            const createdUser = result.user;
+            console.log(createdUser);
+
+            toast.success('Successfully Register!')
+            updateProfile(createdUser,{displayName: name, photoURL: photo})
+            .then(()=>{
+
+            })
+            .catch(error=>{
+                console.log(error);
+            })
+        })
+        .catch(error=>{
+            const message = error.message;
+            console.log(message);
+        })
 
     }
     return (

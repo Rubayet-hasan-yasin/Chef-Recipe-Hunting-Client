@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { HiMenu, HiX } from "react-icons/hi";
 import { GiCook } from "react-icons/gi";
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
+import { AuthContext } from '../AuthProvider/AuthProvider';
+import { signOut } from 'firebase/auth';
+import { toast } from 'react-hot-toast';
 
 
 
@@ -11,8 +14,18 @@ import 'react-tooltip/dist/react-tooltip.css';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
-    const user = false;
-    const name = true
+    const { user, logOut } = useContext(AuthContext);
+    // console.log(user);
+
+    const handleLogOut = ()=>{
+        logOut()
+        .then(()=>{
+            toast.success('Successfully LogOut')
+        })
+        .catch(error=>{
+            console.log(error);
+        })
+    }
     return (
         <div className=' px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8'>
             <div className='relative flex items-center justify-between'>
@@ -48,13 +61,9 @@ const Header = () => {
                     {
                         user ?
 
-                            <img
-                                id='name-show'
-
-                                src='https://i.ibb.co/dbb1Vkh/f48e2701-903c-42b2-a70d-443cdea9f4d3-removebg-preview.png'
-                                alt='profile'
-                                className='object-cover w-20 ml-12'
-                            />
+                            <Link to={'/'}>
+                                <button onClick={handleLogOut} className='ml-12 py-3 px-7 bg-[#F9A51A] rounded-lg shadow-md'>Log out</button>
+                            </Link>
 
                             :
                             <Link to={'/login'}>
@@ -62,7 +71,7 @@ const Header = () => {
                             </Link>
                     }
                     <Tooltip anchorSelect="#name-show"
-                        content="Hello world!" />
+                        content={user?.displayName} />
                 </nav>
                 {/* Mobile Navbar Section */}
                 <div className='lg:hidden'>
