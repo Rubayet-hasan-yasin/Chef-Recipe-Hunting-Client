@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Banner from '../Banner/Banner';
 import { useLoaderData } from 'react-router-dom';
 import ChefCard from '../Card/ChefCard';
 import { InfinitySpin } from 'react-loader-spinner';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const Home = () => {
+    const {loading} = useContext(AuthContext)
     const chefs = useLoaderData();
-    
+console.log(chefs);    
 
-    if (!chefs) {
+    if (!chefs || loading) {
         return <div className='flex items-center justify-center h-screen flex-col'><InfinitySpin
             width='200'
             color="#252620"

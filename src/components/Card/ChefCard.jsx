@@ -8,7 +8,7 @@ const ChefCard = ({ chef }) => {
         <div className='border w-[calc(100%-20px)] rounded-lg p-10'>
             <div className='w-72 mb-8 ml-auto'>
 
-                <LazyLoad  threshold={0.95} width={288} onContentVisible={() => {console.log('loaded!')}}>
+                <LazyLoad  threshold={0.95} width={288} >
                     <img src={chef.picture} alt="logo" className='object-contain rounded-2xl shadow-2xl' />
                 </LazyLoad>
             </div>

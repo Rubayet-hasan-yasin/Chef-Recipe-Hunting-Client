@@ -49,8 +49,10 @@ const Register = () => {
         .catch(error=>{
             const message = error.message;
             console.log(message);
+            setError(message)
         })
 
+        form.reset()
     }
     return (
         <div className='w-2/6 mx-auto'>

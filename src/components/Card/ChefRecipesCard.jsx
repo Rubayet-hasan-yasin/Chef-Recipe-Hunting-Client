@@ -3,6 +3,7 @@ import { Rating } from '@smastrom/react-rating'
 
 import '@smastrom/react-rating/style.css'
 import { toast } from 'react-hot-toast';
+import LazyLoad from 'react-lazy-load';
 
 const ChefRecipesCard = ({ recipe }) => {
     const [readmore, setReadMore] = useState(false);
@@ -10,7 +11,7 @@ const ChefRecipesCard = ({ recipe }) => {
 
 
 
-    const handledisable = e =>{
+    const handledisable = e => {
         e.target.disabled = true
         toast.success('The recipe is your favorite')
     }
@@ -29,7 +30,9 @@ const ChefRecipesCard = ({ recipe }) => {
                 </div>
 
                 <div>
-                    <img className='w-fit h-fit rounded-lg shadow-xl' src={image_url} alt="img" />
+                    <LazyLoad offset={100}>
+                        <img className='w-fit h-fit rounded-lg shadow-xl' src={image_url} alt="img" />
+                    </LazyLoad>
 
                     <div className='flex gap-3 items-center mt-6'>
                         <Rating

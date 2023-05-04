@@ -2,16 +2,24 @@ import React, { useContext } from 'react';
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
 
 
 const LoginButton = () => {
     const {loginWithGoogle, loginWithGithub} = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
 
     const handleLoginWithGoogle = ()=>{
         loginWithGoogle()
         .then(result=>{
             const loggedUser = result.user;
             console.log(loggedUser);
+            toast.success('Successfully Login!')
+            navigate(from, {replace: true})
         })
         .catch(error=>{
             const message = error.message;
@@ -24,6 +32,8 @@ const LoginButton = () => {
         .then(result=>{
             const loggedUser = result.user;
             console.log(loggedUser);
+            toast.success('Successfully Login!')
+            navigate(from, {replace: true})
         })
         .catch(error=>{
             const message = error.message;

@@ -47,6 +47,7 @@ const Login = () => {
             setError(message)
         })
 
+        form.reset()
     }
     return (
 

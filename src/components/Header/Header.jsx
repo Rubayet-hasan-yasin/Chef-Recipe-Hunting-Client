@@ -61,7 +61,7 @@ const Header = () => {
                         user &&
                         <img
                             id='name-show'
-                            src={user.photoURL}
+                            src={user?.photoURL}
                             alt='profile'
                             className='object-cover w-12 h-12 rounded-full ml-12'
                         />

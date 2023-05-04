@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { FcLike } from 'react-icons/fc';
 import { useLoaderData, useParams } from 'react-router-dom';
 import ChefRecipesCard from '../Card/ChefRecipesCard';
+import LazyLoad from 'react-lazy-load';
 
 const ChefRecipes = () => {
-    const {chef, recipes} = useLoaderData();
+    const { chef, recipes } = useLoaderData();
     const params = useParams()
-    
+
 
     // console.log(params);
 
@@ -33,12 +34,14 @@ const ChefRecipes = () => {
                     </div>
                 </div>
                 <div className='h-[600px] mt-20'>
-                    <img src={chef.picture} alt="img" className='h-3/4 rounded-xl' />
+                    <LazyLoad threshold={0.95} width={600} >
+                        <img src={chef.picture} alt="img" className='h-3/4 rounded-xl' />
+                    </LazyLoad>
                 </div>
             </div>
             <div className='grid grid-cols-2 gap-6 justify-items-center'>
                 {
-                    recipes.map((recipe, i)=> <ChefRecipesCard key={i} recipe={recipe}></ChefRecipesCard>)
+                    recipes.map((recipe, i) => <ChefRecipesCard key={i} recipe={recipe}></ChefRecipesCard>)
                 }
             </div>
         </>
