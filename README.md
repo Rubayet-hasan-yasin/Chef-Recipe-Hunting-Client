@@ -1,7 +1,7 @@
 # Chef's Plate
 
 # #live links
-# [live links](https://jobgetewayassignment.netlify.app/)
+# [live links](https://chef-recipe-hunting-assign.web.app/)
 
 - * + 
 
