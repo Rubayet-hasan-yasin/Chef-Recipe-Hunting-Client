@@ -1,16 +1,25 @@
-import React, { useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import Banner from '../Banner/Banner';
-import { useLoaderData } from 'react-router-dom';
 import ChefCard from '../Card/ChefCard';
 import { InfinitySpin } from 'react-loader-spinner';
-import { AuthContext } from '../AuthProvider/AuthProvider';
+
 
 const Home = () => {
-    const {loading} = useContext(AuthContext)
-    const chefs = useLoaderData();
-console.log(chefs);    
+    const [loading, setLoading] = useState(false);
+    const [chefs, setChefs] = useState([]);
+// console.log(chefs);
+    
+    useEffect(()=>{
+        setLoading(true)
+        fetch('https://chef-recipe-hunting-server-rubayet-hasan-yasin.vercel.app/chefs')
+        .then(res=> res.json())
+        .then(data=>{ setChefs(data) 
+            setLoading(false)
+        })
+        
+    },[])
 
-    if (!chefs || loading) {
+    if (loading) {
         return <div className='flex items-center justify-center h-screen flex-col'><InfinitySpin
             width='200'
             color="#252620"

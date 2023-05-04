@@ -61,7 +61,7 @@ const Header = () => {
                         user &&
                         <img
                             id='name-show'
-                            src={user?.photoURL}
+                            src={user?.photoURL || 'https://i.ibb.co/dLR9DFs/Vite-React.png'}
                             alt='profile'
                             className='object-cover w-12 h-12 rounded-full ml-12'
                         />
@@ -79,7 +79,7 @@ const Header = () => {
                                 <button className='ml-12 py-3 px-7 bg-[#F9A51A] rounded-lg shadow-md'>Login</button>
                             </Link>
                     }
-                     <Tooltip anchorSelect="#name-show"
+                    <Tooltip anchorSelect="#name-show"
                         content={user?.displayName} />
                 </nav>
                 {/* Mobile Navbar Section */}
@@ -135,19 +135,29 @@ const Header = () => {
                                     </ul>
 
                                     {
+                                        user &&
+                                        <img
+                                            id='name-show'
+                                            src={user?.photoURL || 'https://i.ibb.co/dLR9DFs/Vite-React.png'}
+                                            alt='profile'
+                                            className='object-cover w-12 h-12 rounded-full ml-12'
+                                        />
+                                    }
+
+                                    {
                                         user ?
 
-                                            <img
-                                                data-tooltip-id="my-tooltip" data-tooltip-content="Hello world xdfsgadsgas dsgfdsg!"
-
-                                                src='https://i.ibb.co/dbb1Vkh/f48e2701-903c-42b2-a70d-443cdea9f4d3-removebg-preview.png'
-                                                alt='profile'
-                                                className='object-cover w-20'
-                                            />
+                                            <Link >
+                                                <button onClick={handleLogOut} className='ml-12 py-3 px-7 bg-[#F9A51A] rounded-lg shadow-md'>Log out</button>
+                                            </Link>
 
                                             :
-                                            <button className='ml-12 py-3 px-7 bg-[#F9A51A] rounded-lg shadow-md'>Login</button>
+                                            <Link to={'/login'}>
+                                                <button className='ml-12 py-3 px-7 bg-[#F9A51A] rounded-lg shadow-md'>Login</button>
+                                            </Link>
                                     }
+                                    <Tooltip anchorSelect="#name-show"
+                                        content={user?.displayName} />
                                 </nav>
                             </div>
                         </div>

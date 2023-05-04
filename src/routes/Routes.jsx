@@ -16,8 +16,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home />,
-                loader: () => fetch('https://chef-recipe-hunting-server-rubayet-hasan-yasin.vercel.app/chefs')
+                element: <Home />
             },
             {
                 path: '/blog',
