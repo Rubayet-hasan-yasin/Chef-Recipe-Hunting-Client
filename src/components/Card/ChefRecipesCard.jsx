@@ -2,11 +2,18 @@ import React, { useState } from 'react';
 import { Rating } from '@smastrom/react-rating'
 
 import '@smastrom/react-rating/style.css'
+import { toast } from 'react-hot-toast';
 
 const ChefRecipesCard = ({ recipe }) => {
     const [readmore, setReadMore] = useState(false);
     const { image_url, recipe_name, ingredients, cooking_method, rating } = recipe;
 
+
+
+    const handledisable = e =>{
+        e.target.disabled = true
+        toast.success('The recipe is your favorite')
+    }
     return (
         <div className='border px-5 py-6 rounded-lg shadow-xl'>
             <div className='grid md:grid-cols-2 gap-4'>
@@ -50,6 +57,7 @@ const ChefRecipesCard = ({ recipe }) => {
                     </button>
                 </p>
             </div>
+            <button onClick={handledisable} className='text-white bg-gradient-to-r from-[#7E90FE] to-[#9873FF] hover:bg-gradient-to-br focus:ring-2 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg text-lg px-5 py-2.5 text-center my-5 disabled:opacity-60'>Favorite</button>
         </div>
     );
 };

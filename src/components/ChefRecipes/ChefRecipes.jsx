@@ -5,8 +5,10 @@ import ChefRecipesCard from '../Card/ChefRecipesCard';
 
 const ChefRecipes = () => {
     const {chef, recipes} = useLoaderData();
-    const params = useParams();
+    const params = useParams()
+    
 
+    console.log(params);
 
 
     return (
