@@ -2,10 +2,18 @@ import React from 'react';
 import Banner from '../Banner/Banner';
 import { useLoaderData } from 'react-router-dom';
 import ChefCard from '../Card/ChefCard';
+import { InfinitySpin } from 'react-loader-spinner';
 
 const Home = () => {
     const chefs = useLoaderData();
+    
 
+    if (!chefs) {
+        return <div className='flex items-center justify-center h-screen flex-col'><InfinitySpin
+            width='200'
+            color="#252620"
+        /></div>
+    }
 
     return (
         <div className='mx-5'>
