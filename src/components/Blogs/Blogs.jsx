@@ -9,7 +9,7 @@ const Blogs = () => {
             <div className='flex my-10 mb-28 justify-center'>
                 <h2 className='text-center text-5xl text-gray-700 font-extrabold'>Question and Answer</h2>
 
-                <Pdf targetRef={ref} filename="div-blue.pdf">
+                <Pdf targetRef={ref} filename="Blog.pdf">
                     {({ toPdf }) => <button className='flex items-center ml-12 bg-slate-100 px-5 rounded-xl text-gray-700 font-semibold' onClick={toPdf}><BsCloudDownload className='w-6 h-6 mr-4 text-blue-600' /> Download PDF</button>}
                 </Pdf>
             </div>

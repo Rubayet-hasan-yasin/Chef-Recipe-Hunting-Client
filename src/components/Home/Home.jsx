@@ -7,17 +7,18 @@ import { InfinitySpin } from 'react-loader-spinner';
 const Home = () => {
     const [loading, setLoading] = useState(false);
     const [chefs, setChefs] = useState([]);
-// console.log(chefs);
-    
-    useEffect(()=>{
+    // console.log(chefs);
+
+    useEffect(() => {
         setLoading(true)
         fetch('https://chef-recipe-hunting-server-rubayet-hasan-yasin.vercel.app/chefs')
-        .then(res=> res.json())
-        .then(data=>{ setChefs(data) 
-            setLoading(false)
-        })
-        
-    },[])
+            .then(res => res.json())
+            .then(data => {
+                setChefs(data)
+                setLoading(false)
+            })
+
+    }, [])
 
     if (loading) {
         return <div className='flex items-center justify-center h-screen flex-col'><InfinitySpin
@@ -107,6 +108,16 @@ const Home = () => {
                     </div>
                 </div>
 
+                <div className='md:flex items-center justify-between'>
+                    <div className='md:w-6/12 my-6'>
+                        <h1 className='text-5xl font-bold my-5 text-orange-600'>SPECIAL RECIPES</h1>
+                        <p className='text-base text-gray-600 font-medium'>One type of special recipe is the traditional family recipe. These recipes have been passed down from generation to generation and are often associated with special memories and occasions. They might be a particular type of holiday dish, or a special recipe that a family member always makes for birthdays or other celebrations.</p>
+                    </div>
+
+                    <img
+                    className='md:w-[30%] rounded-2xl'
+                     src="https://images.unsplash.com/photo-1576107290640-a68caf8256f1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80" alt="img" />
+                </div>
 
             </section>
         </div>
