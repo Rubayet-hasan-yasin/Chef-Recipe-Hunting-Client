@@ -17,4 +17,4 @@
 
 * ### Blog page have 4 Question and Answer. have a PDF download button. if someone clicking then download a blog page pdf.
 
-* ### Login and Registation : In Registation anyone can registation using there name , photo url, email and password. they can also use login with google and github. Login page have input field if anyone already registered then they can login or they can use Google or github for Login. test 
+* ### Login and Registation : In Registation anyone can registation using there name , photo url, email and password. they can also use login with google and github. Login page have input field if anyone already registered then they can login or they can use Google or github for Login. testss
